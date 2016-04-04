@@ -15,6 +15,16 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  raise TriangleError if [a,b,c].min <= 0 || a + b <= c || a + c <= b || b + c <= a
+  if (a == b) && (b == c)
+	:equilateral;
+  elsif (a == b) || (b == c) || (a == c)
+	:isosceles
+  elsif (a != b) && (b != c) && (a != c)
+	:scalene 
+  else 
+	raise TriangleError, "data is incorrect"
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
